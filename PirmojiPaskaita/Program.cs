@@ -452,7 +452,7 @@ Laikas = Valandos < 10 ? Laikas + "0" + Valandos + ":" : Laikas + Valandos + ":"
 Laikas = Minutes < 10 ? Laikas + "0" + Minutes + ":" : Laikas + Minutes + ":";
 Laikas = Sekundes < 10 ? Laikas + "0" + Sekundes : Laikas + Sekundes;
 Console.WriteLine($"Naujas laikas: {Laikas}");
-/*
+*/
 
 ///////////////////////////////////////////////////////
 // 10 Uzduotis ////////////////////////////////////////
