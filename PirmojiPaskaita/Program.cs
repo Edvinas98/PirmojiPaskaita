@@ -15,9 +15,9 @@ Console.WriteLine($"Labas, {Vardas}");
 
 /*
 Console.WriteLine("Iveskite pirma skaiciu: ");
-int Number1 = int.Parse(Console.ReadLine());
+int.TryParse(Console.ReadLine(), out int Number1);
 Console.WriteLine("Iveskite antra skaiciu: ");
-int Number2 = int.Parse(Console.ReadLine());
+int.TryParse(Console.ReadLine(), out int Number2);
 Number1 += Number2;
 Console.WriteLine($"Skaiciu suma: {Number1}");
 */
@@ -28,7 +28,7 @@ Console.WriteLine($"Skaiciu suma: {Number1}");
 
 /*
 Console.WriteLine("Iveskite savo amziu: ");
-byte Amzius = byte.Parse(Console.ReadLine());
+byte.TryParse(Console.ReadLine(), out byte Amzius);
 Amzius += 5;
 Console.WriteLine($"Jusu amzius po 5 metu: {Amzius}");
 */
@@ -39,9 +39,9 @@ Console.WriteLine($"Jusu amzius po 5 metu: {Amzius}");
 
 /*
 Console.WriteLine("Iveskite staciakampio ilgi: ");
-double Ilgis = double.Parse(Console.ReadLine());
+double.TryParse(Console.ReadLine(), out double Ilgis);
 Console.WriteLine("Iveskite staciakampio ploti: ");
-double Plotis = double.Parse(Console.ReadLine());
+double.TryParse(Console.ReadLine(), out double Plotis);
 Ilgis *= Plotis;
 Console.WriteLine($"Staciakampio plotas: {Ilgis}");
 */
@@ -52,11 +52,87 @@ Console.WriteLine($"Staciakampio plotas: {Ilgis}");
 
 /*
 Console.WriteLine("Iveskite skaiciu: ");
-int Skaicius = int.Parse(Console.ReadLine());
+int.TryParse(Console.ReadLine(), out int Skaicius);
 if( Skaicius % 2 == 0 )
     Console.WriteLine("Skaicius yra lyginis");
 else
     Console.WriteLine("Skaicius yra nelyginis");
+*/
+
+///////////////////////////////////////////////////////
+// 6 Uzduotis /////////////////////////////////////////
+///////////////////////////////////////////////////////
+
+/*
+Console.WriteLine("Iveskite simboli: ");
+char.TryParse(Console.ReadLine(), out char Simbolis);
+if( !Char.IsLetter(Simbolis) )
+    Console.WriteLine("Sis simbolis nera raide!");
+else
+{
+    Char.ToLower(Simbolis);
+    if ( Simbolis == 'a' || Simbolis == 'e' || Simbolis == 'y' || Simbolis == 'u' || Simbolis == 'i' || Simbolis == 'o' )
+        Console.WriteLine("Sis simbolis yra balsis");
+    else
+        Console.WriteLine("Sis simbolis yra priebalsis");
+}
+*/
+
+///////////////////////////////////////////////////////
+// 7 Uzduotis /////////////////////////////////////////
+///////////////////////////////////////////////////////
+
+/*
+Console.WriteLine("Iveskite pirmos dienos temperatura: ");
+decimal.TryParse(Console.ReadLine(), out decimal Temperatura);
+Console.WriteLine("Iveskite antros dienos temperatura: ");
+decimal.TryParse(Console.ReadLine(), out decimal T2);
+Temperatura += T2;
+Console.WriteLine("Iveskite trecios dienos temperatura: ");
+decimal.TryParse(Console.ReadLine(), out decimal T3);
+Temperatura += T3;
+Console.WriteLine("Iveskite ketvirtos dienos temperatura: ");
+decimal.TryParse(Console.ReadLine(), out decimal T4);
+Temperatura += T4;
+Console.WriteLine("Iveskite penktos dienos temperatura: ");
+decimal.TryParse(Console.ReadLine(), out decimal T5);
+Temperatura += T5;
+Console.WriteLine("Iveskite sestos dienos temperatura: ");
+decimal.TryParse(Console.ReadLine(), out decimal T6);
+Temperatura += T6;
+Console.WriteLine("Iveskite septintos dienos temperatura: ");
+decimal.TryParse(Console.ReadLine(), out decimal T7);
+Temperatura += T7;
+
+Temperatura = Math.Round(Temperatura / 7, 1);
+Console.WriteLine($"Temperaturos vidurkis: {Temperatura}");
+*/
+
+///////////////////////////////////////////////////////
+// 8 Uzduotis /////////////////////////////////////////
+///////////////////////////////////////////////////////
+
+/*
+Console.WriteLine("Iveskite pradine prekes kaina: ");
+decimal.TryParse(Console.ReadLine(), out decimal InitialPrice);
+Console.WriteLine("Iveskite PVM procenta: ");
+decimal.TryParse(Console.ReadLine(), out decimal VatPercentage);
+VatPercentage = 1 + VatPercentage / 100;
+InitialPrice = Math.Round(InitialPrice * VatPercentage, 2);
+Console.WriteLine($"Galutine kaina su PVM: {InitialPrice}");
+*/
+
+///////////////////////////////////////////////////////
+// 9 Uzduotis /////////////////////////////////////////
+///////////////////////////////////////////////////////
+
+/*
+Console.WriteLine("Iveskite zmogaus svori kilogramais: ");
+decimal.TryParse(Console.ReadLine(), out decimal Weight);
+Console.WriteLine("Iveskite zmogaus ugi metrais: ");
+decimal.TryParse(Console.ReadLine(), out decimal Height);
+Weight = Math.Round(Weight / (Height* Height), 2);
+Console.WriteLine($"KMI: {Weight}");
 */
 
 
@@ -73,10 +149,10 @@ Console.WriteLine("Iveskite savo pavarde: ");
 string Pavarde = Console.ReadLine();
 
 Console.WriteLine("Iveskite savo gimimo metus: ");
-int GimimoMetai = int.Parse(Console.ReadLine());
+int.TryParse(Console.ReadLine(), out int GimimoMetai);
 
 Console.WriteLine("Iveskite siuos metus: ");
-int SieMetai = int.Parse(Console.ReadLine());
+int.TryParse(Console.ReadLine(), out int SieMetai);
 
 Console.WriteLine($"As esu {Vardas} {Pavarde}. Man yra {SieMetai-GimimoMetai}");
 */
@@ -113,7 +189,7 @@ Random Rnd = new Random();
 int RandomNumber1 = Rnd.Next(0, 26);
 int RandomNumber2 = Rnd.Next(0, 26);
 int RandomNumber3 = Rnd.Next(0, 26);
-int Rezultatas;
+int Rezultatas = -1;
 
 Console.WriteLine($"Sugeneruoti skaiciai: {RandomNumber1}, {RandomNumber2} ir {RandomNumber3}");
 
@@ -376,7 +452,7 @@ Laikas = Valandos < 10 ? Laikas + "0" + Valandos + ":" : Laikas + Valandos + ":"
 Laikas = Minutes < 10 ? Laikas + "0" + Minutes + ":" : Laikas + Minutes + ":";
 Laikas = Sekundes < 10 ? Laikas + "0" + Sekundes : Laikas + Sekundes;
 Console.WriteLine($"Naujas laikas: {Laikas}");
-*/
+/*
 
 ///////////////////////////////////////////////////////
 // 10 Uzduotis ////////////////////////////////////////
